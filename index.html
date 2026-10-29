@@ -93,10 +93,10 @@
 
       <!-- Model Selector -->
       <select id="modelSelector" class="hidden sm:block text-xs font-medium bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-700 dark:text-slate-200">
+        <option value="gemini-3.8-flash" selected>Gemini 3.8 Flash</option>
         <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
         <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
         <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
-        <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
       </select>
     </div>
 
@@ -383,7 +383,7 @@
       apiKey: sessionStorage.getItem('GEMINI_API_KEY') || localStorage.getItem('GEMINI_API_KEY') || '',
       storageType: localStorage.getItem('GEMINI_API_KEY') ? 'local' : 'session',
       theme: localStorage.getItem('theme') || 'dark',
-      currentModel: 'gemini-2.5-flash',
+      currentModel: 'gemini-3.8-flash',
       sessions: JSON.parse(localStorage.getItem('gemini_chat_sessions') || '[]'),
       currentSessionId: null,
       isStreaming: false,
@@ -858,7 +858,7 @@
             ${!msg.isStreaming ? `
               <div class="flex items-center gap-2 mt-2 pt-2 text-xs text-slate-400">
                 <button class="msg-action-speak hover:text-blue-500 flex items-center gap-1 p-1 rounded transition" title="Read Aloud">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
                   Listen
                 </button>
                 <button class="msg-action-copy hover:text-blue-500 flex items-center gap-1 p-1 rounded transition" title="Copy Text">
@@ -914,7 +914,7 @@
             navigator.clipboard.writeText(block.innerText);
             btn.innerHTML = 'Copied!';
             setTimeout(() => {
-              btn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg> <span>Copy</span>';
+              btn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg> <span>Copy</span>';
             }, 1500);
           });
 
